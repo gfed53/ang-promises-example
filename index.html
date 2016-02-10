@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<body>
+		<div ng-controller="PromiseExampleCtrl">
+			<button ng-click="saveSettings(true)">Submit Data (success)</button>
+	      	<button ng-click="saveSettings()">Submit Data (error)</button>
+			<div ng-if="notifySaved && !error" class="notification-success">
+				Your password has been saved.
+			</div>
+			<div ng-if="notifySaved && error" class="notification-failed">
+				An error occurred. Password could not be saved.
+			</div>
+			<form ng-submit="saveSettings()">
+				<p>
+					<label>Password:</label>
+					<input type="password" ng-model="data.password" name="password" required>
+				</p>
+				<p>
+					<label>Password Confirmation:</label>
+					<input type="password" ng-model="data.password_confirm" name="password_confirm" required>
+				</p>
+				<p>
+					<input type="submit" value="Submit">
+				</p>
+			</form>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<script src="./apps/app.js"></script>
+	</body>
+</html>
