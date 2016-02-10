@@ -1,34 +1,32 @@
 <!DOCTYPE html>
-<html ng-app="myApp" lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>Document</title>
-	</head>
-	<body>
-		<div ng-controller="PromiseExampleCtrl">
-			<button ng-click="saveSettings(true)">Submit Data (success)</button>
-	      	<button ng-click="saveSettings()">Submit Data (error)</button>
-			<div ng-if="notifySaved && !error" class="notification-success">
-				Your password has been saved.
-			</div>
-			<div ng-if="notifySaved && error" class="notification-failed">
-				An error occurred. Password could not be saved.
-			</div>
-			<form ng-submit="saveSettings()">
-				<p>
-					<label>Password:</label>
-					<input type="password" ng-model="data.password" name="password" required>
-				</p>
-				<p>
-					<label>Password Confirmation:</label>
-					<input type="password" ng-model="data.password_confirm" name="password_confirm" required>
-				</p>
-				<p>
-					<input type="submit" value="Submit">
-				</p>
-			</form>
-		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-		<script src="./apps/app.js"></script>
-	</body>
+<html>
+
+  <head>
+    <script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <script src="apps/app.js"></script>
+  </head>
+
+  <body>
+    <div ng-app="PromisesApp" ng-controller="PromisesExampleCtrl">
+      <button ng-click="saveSettings(true)">Submit Data (success)</button>
+      <button ng-click="saveSettings()">Submit Data (error)</button>
+      <div ng-if="notifySaved && !error" class="notification-success">
+        Success: Your password has been saved.
+      </div>
+      <div ng-if="notifySaved && error" class="notification-failed">
+        Error! Your password has not been saved.
+      </div>
+    </div>
+    <form ng-submit="saveSettings()">
+      <p>
+        <label>Password:</label>
+        <input type="password" ng-model="data.password" name="password" required="" />
+      </p>
+      <p>
+        <label>Password Confirmation:</label>
+        <input type="password" ng-model="data.password_confirm" name="password_confirm" required="" />
+      </p>
+    </form>
+  </body>
 </html>
